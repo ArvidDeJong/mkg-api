@@ -1,0 +1,29 @@
+{
+    "name": "darvis/mkg",
+    "description": "Laravel package voor communicatie met het MKG CRM systeem",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Arvid",
+            "email": "info@darvis.nl"
+        }
+    ],
+    "require": {
+        "php": "^8.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Darvis\\Mkg\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Darvis\\Mkg\\MkgServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
