@@ -2,6 +2,25 @@
 
 Alle belangrijke wijzigingen aan de MKG package worden in dit bestand gedocumenteerd.
 
+## [1.1.0] - 2025-07-15
+
+### Toegevoegd
+- Uitgebreide logging van API requests en responses
+- Betere foutafhandeling met gedetailleerde error messages
+- HTTP status code vertalingen naar gebruiksvriendelijke foutmeldingen
+- Automatische hernieuwing van sessie bij authenticatieproblemen
+- Specifieke methodes voor POST en PUT requests
+- Gedetailleerde documentatie voor alle publieke methodes
+
+### Gewijzigd
+- Verbeterde sessie cookie opslag en beheer
+- Timeout en connection timeout configureerbaar gemaakt
+- Code opschoning en verbeterde leesbaarheid
+- Interne methoden gerefactored voor betere herbruikbaarheid
+
+### Beveiliging
+- Verbeterde foutrapportage zonder gevoelige informatie
+
 ## [1.0.0] - 2025-07-14
 
 ### Toegevoegd

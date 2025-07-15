@@ -14,19 +14,44 @@ class MkgInvoice extends Mkg
 {
     /**
      * Beschrijving van de velden die worden opgevraagd bij de MKG API
+     * Bevat voor elk veld een description en format property
      *
      * @var array
      * opde = Open Posten Debiteuren
      */
     public $fieldDescriptions = [
-        'opde_boekstuk' => 'Boekstuk/factuurnummer',
-        'opde_afgewerkt' => 'Of de factuur is afgewerkt/betaald',
-        'opde_bdr_open_ov' => 'Openstaand bedrag',
-        'opde_bet_wijze' => 'Betaalwijze',
-        'opde_dat_factuur' => 'Factuurdatum',
-        'opde_dat_verval' => 'Vervaldatum',
-        'opde_dat_ingave' => 'Datum van ingave',
-        'opde_dat_historisch' => 'Datum historie afgehandeld/betaald',
+        'opde_boekstuk' => [
+            'description' => 'Boekstuk/factuurnummer',
+            'format' => 'varchar'
+        ],
+        'opde_afgewerkt' => [
+            'description' => 'Of de factuur is afgewerkt/betaald',
+            'format' => 'ja/nee'
+        ],
+        'opde_bdr_open_ov' => [
+            'description' => 'Openstaand bedrag',
+            'format' => '>>>,>>>,>>9.99-'
+        ],
+        'opde_bet_wijze' => [
+            'description' => 'Betaalwijze',
+            'format' => 'int'
+        ],
+        'opde_dat_factuur' => [
+            'description' => 'Factuurdatum',
+            'format' => '99-99-9999'
+        ],
+        'opde_dat_verval' => [
+            'description' => 'Vervaldatum',
+            'format' => '99-99-9999'
+        ],
+        'opde_dat_ingave' => [
+            'description' => 'Datum van ingave',
+            'format' => '99-99-9999'
+        ],
+        'opde_dat_historisch' => [
+            'description' => 'Datum historie afgehandeld/betaald',
+            'format' => '99-99-9999'
+        ],
     ];
 
     /**
@@ -44,6 +69,34 @@ class MkgInvoice extends Mkg
     {
         parent::__construct();
         $this->fieldList = implode(',', array_keys($this->fieldDescriptions));
+    }
+    
+    /**
+     * Geeft een eenvoudig overzicht van de velden en hun omschrijvingen
+     *
+     * @return array Associatieve array van veldnamen en omschrijvingen
+     */
+    public function getSimpleFieldDescriptions(): array
+    {
+        $result = [];
+        foreach ($this->fieldDescriptions as $field => $details) {
+            $result[$field] = $details['description'];
+        }
+        return $result;
+    }
+    
+    /**
+     * Geeft een overzicht van de velden en hun formaten
+     *
+     * @return array Associatieve array van veldnamen en formaten
+     */
+    public function getFieldFormats(): array
+    {
+        $result = [];
+        foreach ($this->fieldDescriptions as $field => $details) {
+            $result[$field] = $details['format'];
+        }
+        return $result;
     }
 
     /**
