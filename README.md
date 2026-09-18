@@ -1,4 +1,33 @@
-# MKG CRM API Integratie voor Laravel
+# darvis/mkg-api
+
+> **This package is no longer maintained.** It has been replaced by
+> [darvis/mkg-client](https://packagist.org/packages/darvis/mkg-client), which
+> covers the same MKG REST API with a typed service per document, derived URLs
+> (no more retired `/mkg/rest/v1` paths), automatic re-login, request logging and
+> a test suite. Existing installations keep working, but no fixes or features
+> will land here. Composer warns about this on install and update.
+
+## Moving to darvis/mkg-client
+
+```bash
+composer remove darvis/mkg-api
+composer require darvis/mkg-client
+```
+
+| In darvis/mkg-api | In darvis/mkg-client |
+| --- | --- |
+| `MKG_URL_AUTH` and `MKG_URL_PROD` in `.env` | `MKG_HOST` only; both URLs are derived. The overrides still exist for a non-standard layout |
+| `MKG_COOKIE_PATH` | `MKG_COOKIE_STORAGE_PATH` |
+| `Mkg::get('debi?Filter=...')` | `app(DebtorsService::class)->list(filter: '...')` and the other services under `Darvis\MkgClient\Services` |
+| `$mkg->errors` after a `null` result | `MkgHttpException`, thrown with an explanation of what went wrong |
+| `MkgInvoice::get($invoiceNumber)` | No invoices service yet; extend `Darvis\MkgClient\BaseMkgService` for the `opde` document, or [open an issue](https://github.com/ArvidDeJong/mkg-client/issues) |
+
+Documentation: **https://arviddejong.github.io/mkg-client/**
+
+The original Dutch documentation of this package follows, unchanged, for the
+installations that still run it.
+
+---
 
 Deze Laravel package maakt het mogelijk om eenvoudig te communiceren met het MKG CRM systeem vanuit je Laravel applicatie.
 

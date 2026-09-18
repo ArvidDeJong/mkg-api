@@ -2,6 +2,17 @@
 
 Alle belangrijke wijzigingen aan de MKG package worden in dit bestand gedocumenteerd.
 
+## [1.2.0] - 2026-09-18
+
+Final release. This package is abandoned in favour of
+[darvis/mkg-client](https://packagist.org/packages/darvis/mkg-client); see the
+README for how to move. The code is unchanged.
+
+### Changed
+
+- `composer.json` marks the package as abandoned with `darvis/mkg-client` as the replacement, so Composer warns on install and update. The description, homepage and support links point at the replacement.
+- The README opens with the deprecation notice and a migration table; the original Dutch documentation is kept below it.
+
 ## [1.1.0] - 2025-07-15
 
 ### Toegevoegd

@@ -1,14 +1,20 @@
 {
     "name": "darvis/mkg-api",
-    "description": "Laravel package voor communicatie met het MKG ERP systeem",
+    "description": "Abandoned Laravel client for the MKG ERP REST API. Use darvis/mkg-client instead.",
     "type": "library",
     "license": "MIT",
+    "abandoned": "darvis/mkg-client",
+    "homepage": "https://arviddejong.github.io/mkg-client/",
     "authors": [
         {
-            "name": "Arvid",
-            "email": "info@darvis.nl"
+            "name": "Arvid de Jong",
+            "email": "arvid@darvis.nl"
         }
     ],
+    "support": {
+        "issues": "https://github.com/ArvidDeJong/mkg-client/issues",
+        "source": "https://github.com/ArvidDeJong/mkg-api"
+    },
     "require": {
         "php": "^8.2"
     },
